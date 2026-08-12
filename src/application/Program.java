@@ -1,6 +1,7 @@
 package application;
 
 import model.entities.Reservation;
+import model.exceptions.DomainException;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -41,6 +42,9 @@ public class Program {
         }
         catch (ParseException e) {
             System.out.println("Invalid data format");
+        }
+        catch (DomainException e) {
+            System.out.println("Error in reservation: " + e.getMessage());
         }
 
         sc.close();
